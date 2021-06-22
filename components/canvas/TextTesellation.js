@@ -1,7 +1,7 @@
 // https://threejs.org/examples/?q=tes#webgl_modifier_tessellation
 // https://github.com/mrdoob/three.js/blob/master/examples/webgl_modifier_tessellation.html
 import React, { useEffect, useState } from 'react'
-import { useFrame, useLoader, useThree } from '@react-three/fiber';
+import { useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three'
 import { TessellateModifier } from 'three/examples/jsm/modifiers/TessellateModifier.js';
 

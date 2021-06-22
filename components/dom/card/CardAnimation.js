@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import Card from './Card'
-import useGsapRevealAnimation from '../hooks/useGsapRevealAnimation'
+import useGsapRevealAnimation from '../../../hooks/useGsapRevealAnimation'
 
 /**
  * 

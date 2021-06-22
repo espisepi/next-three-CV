@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 
-import CardAnimation from '../components/CardAnimation'
+import CardAnimation from '../components/dom/card/CardAnimation'
 import useGsapRevealAnimation from '../hooks/useGsapRevealAnimation'
 
 const CanvasBackground = dynamic(() => import('../components/canvas/CanvasBackground'))
