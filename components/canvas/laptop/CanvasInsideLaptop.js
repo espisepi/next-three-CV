@@ -20,19 +20,25 @@ function Scene({}) {
     )
 }
 
-export default function CanvasInsideLaptop({scrollTop}) {
-    const [canvasEl, setCanvasEl] = useState()
-    const [renderer, setRenderer] = useState()
-    useEffect(()=>{
+export default function CanvasInsideLaptop({}) {
 
-        const canvas_laptop = document.getElementById('canvas_laptop')
-        if(canvas_laptop) {
-            setCanvasEl(canvas_laptop)
-            const renderer = new THREE.WebGLRenderer( { antialias: true, canvas: canvas_laptop } );
-            renderer.setPixelRatio( window.devicePixelRatio );
-            setRenderer(renderer)
-        }  
-    },[ scrollTop ])
+    const [renderer, setRenderer] = useState()
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const canvas_laptop = document.getElementById('canvas_laptop')
+            console.log(canvas_laptop)
+            if(canvas_laptop) {
+
+                const renderer = new THREE.WebGLRenderer( { antialias: true, canvas: canvas_laptop } );
+                renderer.setPixelRatio( window.devicePixelRatio );
+                setRenderer(renderer)
+
+                clearInterval(interval)
+            }  
+        }, 1000);
+        return () => clearInterval(interval);
+      }, []);
     
     if(renderer) {
         return (

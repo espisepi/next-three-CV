@@ -15,8 +15,6 @@ const CanvasInsideLaptop = dynamic(() => import('../components/canvas/laptop/Can
 
 export default function Home() {
 
-  const scrollTop = useScroll('.container','.container')
-
   return (
     <>
       <Head>
@@ -27,7 +25,7 @@ export default function Home() {
       <CanvasBackground style={{position:'fixed', top:0, width:'100%', height:'100vh', backgroundColor:'black', zIndex:-10}} />
       <CanvasTesellationText style={{position:'relative', top:0, width:'100%', height:'100vh', zIndex:5}} />
       <CanvasLaptop style={{position:'relative', top:0, width:'100%', height:'100vh', zIndex:5}} />
-      <CanvasInsideLaptop scrollTop={scrollTop} />
+      <CanvasInsideLaptop />
 
 
       <main style={{width:'70%'}} className='container mx-auto bg-transparent overflow-y-hidden'>
