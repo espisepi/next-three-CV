@@ -5,7 +5,8 @@ import dynamic from 'next/dynamic'
 import Card from '../components/Card'
 import useGsapRevealAnimation from '../hooks/useGsapRevealAnimation'
 
-const CanvasScene = dynamic(() => import('../components/canvas/CanvasScene'))
+const CanvasBackground = dynamic(() => import('../components/canvas/CanvasBackground'))
+const CanvasTesellationText = dynamic(() => import('../components/canvas/CanvasTesellationText'))
 
 export default function Home() {
 
@@ -27,7 +28,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <CanvasScene style={{position:'fixed', top:0, width:'100%', height:'100vh', backgroundColor:'black', zIndex:-10}} />
+      <CanvasBackground style={{position:'fixed', top:0, width:'100%', height:'100vh', backgroundColor:'black', zIndex:-10}} />
+      <CanvasTesellationText style={{position:'absolute', top:0, width:'100%', height:'100vh', zIndex:5}} />
 
       <main style={{width:'70%'}} className='container mx-auto bg-transparent overflow-y-hidden'>
         <div style={{width:'100%', height:'100vh', backgroundColor:'transparent'}}>

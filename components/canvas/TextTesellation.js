@@ -49,7 +49,7 @@ export default function TextTesellation(){
 
     const { scene } = useThree()
 
-    const [uniforms, setUniforms] = useState({})
+    const [mesh, setMesh] = useState({})
 
     useEffect(()=>{
         let geometry = new THREE.TextGeometry( 'JOSEANGEL', {
@@ -115,8 +115,6 @@ export default function TextTesellation(){
             amplitude: { value: 0.0 }
 
         };
-        
-        setUniforms(uniforms)
 
         const shaderMaterial = new THREE.ShaderMaterial( {
 
@@ -130,19 +128,25 @@ export default function TextTesellation(){
 
         const mesh = new THREE.Mesh( geometry, shaderMaterial );
         mesh.position.set(0,0,-200)
-        mesh.rotation.set(0,0.5,0)
+        // mesh.rotation.set(0,0.5,0)
 
         scene.add( mesh );
+
+        setMesh(mesh)
 
         return () => {
             scene.remove( mesh )
         }
     },[])
 
-    useFrame(({clock})=>{
-        if(uniforms.amplitude) {
-            uniforms.amplitude.value = 1.0 + Math.sin( clock.getElapsedTime() * 0.5 );
+    useFrame(({clock, mouse})=>{
+        if(mesh && mesh.material && mesh.material.uniforms.amplitude) {
+            mesh.material.uniforms.amplitude.value = 1.0 + Math.sin( clock.getElapsedTime() * 0.5 );
         }
+
+        mesh.position.x = THREE.MathUtils.lerp(mesh.position.x, mouse.x * 2, 0.1)
+        mesh.rotation.x = THREE.MathUtils.lerp(mesh.rotation.x, mouse.y / 2, 0.1)
+        mesh.rotation.y = THREE.MathUtils.lerp(mesh.rotation.y, mouse.x / 2, 0.1)
     })
 
     return null
