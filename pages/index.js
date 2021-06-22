@@ -5,8 +5,8 @@ import dynamic from 'next/dynamic'
 import CardAnimation from '../components/dom/card/CardAnimation'
 import useGsapRevealAnimation from '../hooks/useGsapRevealAnimation'
 
-const CanvasBackground = dynamic(() => import('../components/canvas/CanvasBackground'))
-const CanvasTesellationText = dynamic(() => import('../components/canvas/CanvasTesellationText'))
+const CanvasBackground = dynamic(() => import('../components/canvas/background/CanvasBackground'))
+const CanvasTesellationText = dynamic(() => import('../components/canvas/tesellationText/CanvasTesellationText'))
 
 export default function Home() {
 
