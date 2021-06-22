@@ -43,16 +43,14 @@ const fragmentShader = `
 
 `
 
-export default function TextTesellation(){
+export default function TextTesellation({ text='Text Default', ...props }){
 
     const font = useLoader(THREE.FontLoader, 'helvetiker_bold.typeface.json')
-
-    const { scene } = useThree()
 
     const [mesh, setMesh] = useState({})
 
     useEffect(()=>{
-        let geometry = new THREE.TextGeometry( 'JOSEANGEL', {
+        let geometry = new THREE.TextGeometry( text, {
 
             font: font,
 
@@ -127,17 +125,10 @@ export default function TextTesellation(){
         //
 
         const mesh = new THREE.Mesh( geometry, shaderMaterial );
-        mesh.position.set(0,0,-200)
-        // mesh.rotation.set(0,0.5,0)
-
-        scene.add( mesh );
 
         setMesh(mesh)
 
-        return () => {
-            scene.remove( mesh )
-        }
-    },[])
+    },[text])
 
     useFrame(({clock, mouse})=>{
         if(mesh && mesh.material && mesh.material.uniforms.amplitude) {
@@ -149,5 +140,5 @@ export default function TextTesellation(){
         mesh.rotation.y = THREE.MathUtils.lerp(mesh.rotation.y, mouse.x / 2, 0.1)
     })
 
-    return null
+    return <primitive object={mesh} {...props} />
 }
