@@ -2,24 +2,13 @@ import { useRef } from 'react'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 
-import Card from '../components/Card'
+import CardAnimation from '../components/CardAnimation'
 import useGsapRevealAnimation from '../hooks/useGsapRevealAnimation'
 
 const CanvasBackground = dynamic(() => import('../components/canvas/CanvasBackground'))
 const CanvasTesellationText = dynamic(() => import('../components/canvas/CanvasTesellationText'))
 
 export default function Home() {
-
-  const ref = useRef()
-  const ref2 = useRef()
-  const ref3 = useRef()
-  const ref4 = useRef()
-  const ref5 = useRef()
-  const gsapRevealAnimation  = useGsapRevealAnimation(ref, [300,100], [0,0]);
-  const gsapRevealAnimation2  = useGsapRevealAnimation(ref2, [300,100], [0,0]);
-  const gsapRevealAnimation3  = useGsapRevealAnimation(ref3, [300,100], [0,0]);
-  const gsapRevealAnimation4  = useGsapRevealAnimation(ref4, [300,100], [0,0]);
-  const gsapRevealAnimation5  = useGsapRevealAnimation(ref5, [300,100], [0,0]);
 
   return (
     <>
@@ -36,19 +25,15 @@ export default function Home() {
             <h1 className='text-2xl'>HOLI</h1>
         </div>
         <section className='grid md:grid-cols-1 lg:grid-cols-2 gap-10 '>
-          <Card ref={ref} />
-          <Card ref={ref2} />
-          <Card ref={ref3} />
-          <Card ref={ref4} />
-          <Card ref={ref5} />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
+          <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
+          <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
+          <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
+          <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
+          <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
+          <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
+          <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
+          <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
         </section>
       </main>
     </>
