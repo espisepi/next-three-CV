@@ -3,12 +3,19 @@ import Head from 'next/head'
 import dynamic from 'next/dynamic'
 
 import CardAnimation from '../components/dom/card/CardAnimation'
-import useGsapRevealAnimation from '../hooks/useGsapRevealAnimation'
+
+import useScroll from '../hooks/useScroll'
 
 const CanvasBackground = dynamic(() => import('../components/canvas/background/CanvasBackground'))
 const CanvasTesellationText = dynamic(() => import('../components/canvas/tesellationText/CanvasTesellationText'))
+const CanvasLaptop = dynamic(() => import('../components/canvas/laptop/CanvasLaptop'))
+const CanvasInsideLaptop = dynamic(() => import('../components/canvas/laptop/CanvasInsideLaptop'))
+
+
 
 export default function Home() {
+
+  const scrollTop = useScroll('.container','.container')
 
   return (
     <>
@@ -18,7 +25,10 @@ export default function Home() {
       </Head>
 
       <CanvasBackground style={{position:'fixed', top:0, width:'100%', height:'100vh', backgroundColor:'black', zIndex:-10}} />
-      <CanvasTesellationText style={{position:'absolute', top:0, width:'100%', height:'100vh', zIndex:5}} />
+      <CanvasTesellationText style={{position:'relative', top:0, width:'100%', height:'100vh', zIndex:5}} />
+      <CanvasLaptop style={{position:'relative', top:0, width:'100%', height:'100vh', zIndex:5}} />
+      <CanvasInsideLaptop scrollTop={scrollTop} />
+
 
       <main style={{width:'70%'}} className='container mx-auto bg-transparent overflow-y-hidden'>
         <div style={{width:'100%', height:'100vh', backgroundColor:'transparent'}}>

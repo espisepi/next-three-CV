@@ -5,7 +5,7 @@ import TextTesellation from './TextTesellation'
 
 export default function CanvasTextTesellation ({style}) {
     return (
-        <Canvas style={style}>
+        <Canvas className='canvas_tesellation' style={style}>
             <React.Suspense fallback={null}>
                 <group position={[0,50,-200]}>
                     <TextTesellation text='Jose Angel' position={[0,0,0]} />
