@@ -1,10 +1,10 @@
 import React from 'react'
 
 
-const Card = React.forwardRef( ({title='Title', description='Here the description'}, ref) => {
+const Card = React.forwardRef( ({title='Title', description='Here the description', style}, ref) => {
     return (
         <>
-        <div ref={ref} className="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
+        <div ref={ref} style={style} className="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20 bg-opacity-50">
             <div>
                     {/* flex justify-center --> to center title */}
                     {/* flex justify-end --> to end title */}
