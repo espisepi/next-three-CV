@@ -30,7 +30,6 @@ function Model(props) {
             {/* Drei's HTML component can now "hide behind" canvas geometry */}
             <Html className="content" rotation-x={-Math.PI / 2} position={[0, 0.05, -0.09]} transform occlude>
               <div className="wrapper">
-                <h1>HOLIIIIIIIIIIIIIIIIIIIIIIII</h1>
                 <canvas id='canvas_laptop' style={{backgroundColor:'blue'}}></canvas>
               </div>
             </Html>

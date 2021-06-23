@@ -16,8 +16,8 @@ function ScenePrincipal({}) {
     return (
         <>
         <ambientLight />
-        <Stars />
-        <Box />
+        <Stars count={500} />
+        <Box material-wireframe={true} material-color='green' scale={[3,3,3]} />
         <OrbitControls />
         {/* <Scene /> */}
         </>
@@ -46,7 +46,7 @@ export default function CanvasInsideLaptop({}) {
     
     if(renderer) {
         return (
-            <Canvas gl={renderer} style={{width:'300px', height:'150px'}} >
+            <Canvas gl={renderer} style={{width:'330px', height:'210px'}} >
                 <ScenePrincipal />
             </Canvas>
         )
