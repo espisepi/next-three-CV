@@ -6,10 +6,10 @@ import CardAnimation from '../components/dom/card/CardAnimation'
 
 import useScroll from '../hooks/useScroll'
 
-const CanvasBackground = dynamic(() => import('../components/canvas/background/CanvasBackground'))
-const CanvasTesellationText = dynamic(() => import('../components/canvas/tesellationText/CanvasTesellationText'))
-const CanvasLaptop = dynamic(() => import('../components/canvas/laptop/CanvasLaptop'))
-const CanvasInsideLaptop = dynamic(() => import('../components/canvas/laptop/CanvasInsideLaptop'))
+const CanvasBackground = dynamic(() => import('../components/canvas/background/CanvasBackground'), { ssr: false })
+const CanvasTesellationText = dynamic(() => import('../components/canvas/tesellationText/CanvasTesellationText'), { ssr: false })
+const CanvasLaptop = dynamic(() => import('../components/canvas/laptop/CanvasLaptop'), { ssr: false })
+const CanvasInsideLaptop = dynamic(() => import('../components/canvas/laptop/CanvasInsideLaptop'), { ssr: false })
 
 
 
@@ -31,7 +31,7 @@ export default function Home() {
 
       <main style={{width:'70%'}} className='container mx-auto bg-transparent overflow-y-hidden'>
         <div style={{width:'100%', height:'100vh', backgroundColor:'transparent'}}>
-            <h1 className='text-2xl'>HOLI</h1>
+            {/* <h1 className='text-2xl'>HOLI</h1> */}
         </div>
         <section className='grid md:grid-cols-1 lg:grid-cols-2 gap-10 '>
           <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
