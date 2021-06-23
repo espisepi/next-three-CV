@@ -3,7 +3,9 @@ import { Canvas, useThree } from '@react-three/fiber'
 import { Stars, Box } from '@react-three/drei'
 import * as THREE from 'three'
 
-function Scene({}) {
+import { Scene } from './App51/App51'
+
+function ScenePrincipal({}) {
     
     const { gl } = useThree()
     useEffect(()=>{
@@ -13,9 +15,10 @@ function Scene({}) {
 
     return (
         <>
-        <ambientLight />
+        {/* <ambientLight />
         <Stars />
-        <Box />
+        <Box /> */}
+        <Scene />
         </>
     )
 }
@@ -43,7 +46,7 @@ export default function CanvasInsideLaptop({}) {
     if(renderer) {
         return (
             <Canvas gl={renderer} style={{width:'300px', height:'150px'}} >
-                <Scene />
+                <ScenePrincipal />
             </Canvas>
         )
     } else {
