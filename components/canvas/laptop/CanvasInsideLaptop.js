@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
-import { Stars, Box } from '@react-three/drei'
+import { Stars, Box, OrbitControls } from '@react-three/drei'
 import * as THREE from 'three'
 
 import { Scene } from './App51/App51'
@@ -15,10 +15,11 @@ function ScenePrincipal({}) {
 
     return (
         <>
-        {/* <ambientLight />
+        <ambientLight />
         <Stars />
-        <Box /> */}
-        <Scene />
+        <Box />
+        <OrbitControls />
+        {/* <Scene /> */}
         </>
     )
 }

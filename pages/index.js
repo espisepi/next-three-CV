@@ -21,6 +21,7 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      
 
       <CanvasBackground style={{position:'fixed', top:0, width:'100%', height:'100vh', backgroundColor:'black', zIndex:-10}} />
       <CanvasTesellationText style={{position:'relative', top:0, width:'100%', height:'100vh', zIndex:5}} />

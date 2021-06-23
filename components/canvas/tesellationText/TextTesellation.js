@@ -25,6 +25,9 @@ const vertexShader = `
 			}
 `
 const fragmentShader = `
+
+            uniform float iTime;
+
             varying vec3 vNormal;
 			varying vec3 vColor;
 
@@ -37,7 +40,9 @@ const fragmentShader = `
 
 				float directional = max( dot( vNormal, light ), 0.0 );
 
-				gl_FragColor = vec4( ( directional + ambient ) * vColor, 1.0 );
+                vec3 colorFinal = vec3(sin(iTime*vNormal.z * 0.5 ),sin(iTime*vColor.g * 0.5 ),sin(iTime*vColor.z * 0.5 ));
+
+				gl_FragColor = vec4( ( directional + ambient ) * colorFinal, 1.0 );
 
 			}
 
@@ -110,7 +115,8 @@ export default function TextTesellation({ text='Text Default', ...props }){
 
         const uniforms = {
 
-            amplitude: { value: 0.0 }
+            amplitude: { value: 0.0 },
+            iTime: { value: 0.0 },
 
         };
 
@@ -133,6 +139,7 @@ export default function TextTesellation({ text='Text Default', ...props }){
     useFrame(({clock, mouse})=>{
         if(mesh && mesh.material && mesh.material.uniforms.amplitude) {
             mesh.material.uniforms.amplitude.value = 1.0 + Math.sin( clock.getElapsedTime() * 0.5 );
+            mesh.material.uniforms.iTime.value = clock.getElapsedTime()
         }
         if(mesh && mesh.rotation) {
             mesh.position.x = THREE.MathUtils.lerp(mesh.position.x, mouse.x * 2, 0.1)
