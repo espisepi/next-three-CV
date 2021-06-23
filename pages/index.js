@@ -29,9 +29,8 @@ export default function Home() {
       <CanvasInsideLaptop />
 
 
-      <main style={{width:'70%'}} className='container mx-auto bg-transparent overflow-y-hidden'>
+      {/* <main style={{width:'70%'}} className='container mx-auto bg-transparent overflow-y-hidden'>
         <div style={{width:'100%', height:'100vh', backgroundColor:'transparent'}}>
-            {/* <h1 className='text-2xl'>HOLI</h1> */}
         </div>
         <section className='grid md:grid-cols-1 lg:grid-cols-2 gap-10 '>
           <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
@@ -44,7 +43,7 @@ export default function Home() {
           <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
           <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
         </section>
-      </main>
+      </main> */}
     </>
   )
 }
