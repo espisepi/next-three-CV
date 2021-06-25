@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Reveal, Tween } from 'react-gsap';
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
 
 import CardAnimation from '../components/dom/card/CardAnimation'
 
@@ -31,10 +32,7 @@ export default function Home() {
       <CanvasInsideLaptop />
 
 
-      <main style={{width:'70%'}} className='container mx-auto bg-transparent overflow-y-hidden'>
-        {/* <div style={{width:'100%', height:'100vh', backgroundColor:'transparent'}}>
-
-        </div> */}
+      <main style={{width:'70%', marginTop: '-25%'}} className='container mx-auto bg-transparent overflow-y-hidden overflow-x-hidden'>
         <section className='flex items-center justify-center'>
           <Reveal repeat>
             <Tween from={{ opacity: 0 }} duration={2}>
@@ -42,14 +40,39 @@ export default function Home() {
             </Tween>
           </Reveal>
         </section>
-        <section className='grid md:grid-cols-1 lg:grid-cols-2 gap-10 place-items-center'>
+        <section className='grid md:grid-cols-1 lg:grid-cols-2 gap-5 place-items-center'>
           <CardAnimation title='HTML, CSS, Javascript' />
           <CardAnimation title='React, NextJS, Gatsby' />
           <CardAnimation title='Redux, Zustand, Recoil' />
           <CardAnimation title='ThreeJS, WebGL, GLSL' />
           <CardAnimation title='Gsap, TweenJS, Tailwindcss' />
-          <CardAnimation title='NodeJS, Express, MongoDB, SQL' />
+          <CardAnimation title='NodeJS, Express, MongoDB, SQL, Spring, Java' />
           <CardAnimation title='Vercel, Heroku, Digital Ocean' />
+          <CardAnimation title='Blender, Gimp' />
+        </section>
+        <section className='flex items-center justify-center'>
+          <Reveal repeat>
+            <Tween from={{ opacity: 0 }} duration={2}>
+              <h1 style={{color:'white', fontSize: width >= 1160 ? '16rem' : '5rem'}}>CONTACT</h1>
+            </Tween>
+          </Reveal>
+        </section>
+        <section className='flex items-center justify-center flex-row gap-10'>
+
+          <Reveal repeat>
+            <Tween from={{ opacity: 0, transform:'translate(25%,25%)' }} duration={2}>
+              
+            <a href='https://www.linkedin.com/in/jose-%C3%A1ngel-dom%C3%ADnguez-espinaco-bba437163/' target="_blank" style={{textDecoration:'none', color:'red'}}>
+              <Image src='/linkedin.svg' height={300} width={300}  alt="Picture of the author" />
+            </a>
+
+            <a href='https://github.com/espisepi' target="_blank" style={{textDecoration:'none', color:'red'}}>
+              <Image src='/Octocat.jpg' height={300} width={300} className='rounded-full' alt="Picture of the author" />
+            </a>
+
+            </Tween>
+          </Reveal>
+          
         </section>
       </main>
     </>
