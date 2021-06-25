@@ -27,7 +27,7 @@ export default function Home() {
       
 
       <CanvasBackground style={{position:'fixed', top:0, width:'100%', height:'100vh', backgroundColor:'black', zIndex:-10}} />
-      <CanvasTesellationText style={{position:'relative', top:0, width:'100%', height:'100vh', zIndex:5}} />
+      <CanvasTesellationText size={width >= 596 ? 40 : 24} style={{position:'relative', top:0, width:'100%', height:'100vh', zIndex:5}} />
       <CanvasLaptop style={{position:'relative', top:0, width:'100%', height:'100vh', zIndex:5}} />
       <CanvasInsideLaptop />
 
@@ -36,7 +36,7 @@ export default function Home() {
         <section className='flex items-center justify-center'>
           <Reveal repeat>
             <Tween from={{ opacity: 0 }} duration={2}>
-              <h1 style={{color:'white', fontSize: width >= 1160 ? '18rem' : '8rem'}}>SKILLS</h1>
+              <h1 style={{color:'white', fontSize: width >= 1160 ? '13rem' : '3.5rem'}}>SKILLS</h1>
             </Tween>
           </Reveal>
         </section>
@@ -55,7 +55,7 @@ export default function Home() {
         <section className='flex items-center justify-center'>
           <Reveal repeat>
             <Tween from={{ opacity: 0 }} duration={2}>
-              <h1 style={{color:'white', fontSize: width >= 1200 ? '13rem' : '5rem'}}>PROJECTS</h1>
+              <h1 style={{color:'white', fontSize: width >= 1200 ? '13rem' : '3.5rem'}}>PROJECTS</h1>
             </Tween>
           </Reveal>
         </section>
@@ -114,7 +114,7 @@ export default function Home() {
         <section className='flex items-center justify-center'>
           <Reveal repeat>
             <Tween from={{ opacity: 0 }} duration={2}>
-              <h1 style={{color:'white', fontSize: width >= 1200 ? '13rem' : '5rem'}}>CONTACT</h1>
+              <h1 style={{color:'white', fontSize: width >= 1200 ? '13rem' : '3.5rem'}}>CONTACT</h1>
             </Tween>
           </Reveal>
         </section>

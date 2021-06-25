@@ -48,7 +48,7 @@ const fragmentShader = `
 
 `
 
-export default function TextTesellation({ text='Text Default', pointerAnimation=true, ...props }){
+export default function TextTesellation({ text='Text Default', pointerAnimation=true, size=40, ...props }){
 
     const font = useLoader(THREE.FontLoader, 'helvetiker_bold.typeface.json')
 
@@ -59,7 +59,7 @@ export default function TextTesellation({ text='Text Default', pointerAnimation=
 
             font: font,
 
-            size: 40,
+            size: size,
             height: 5,
             curveSegments: 3,
 
