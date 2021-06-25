@@ -87,6 +87,8 @@ export default function CanvasLaptop({style}) {
           <TextTesellation onPointerDown={(e)=>redirectPortfolio(e)} onClick={(e)=>redirectPortfolio(e)} text='Go To Portfolio' pointerAnimation={false} position={[0,2,2]} scale={[0.02,0.03,0.03]} />
         </group>
         <group >
+          <BoxFollowCamera position={[0,1.2,-5]} scale={[2,0.75,1]} material-visible={false} material-color='blue' onPointerDown={(e)=>setControlsEnabled(false)} onPointerUp={(e)=>setControlsEnabled(true)} onPointerLeave={(e)=>setControlsEnabled(true)} />
+          <BoxFollowCamera position={[0,-1.2,-5]} scale={[2,0.75,1]} material-visible={false} material-color='blue' onPointerDown={(e)=>setControlsEnabled(false)} onPointerUp={(e)=>setControlsEnabled(true)} onPointerLeave={(e)=>setControlsEnabled(true)} />
           <BoxFollowCamera position={[1.75,0,-5]} scale={[1,5,1]} material-visible={false} material-color='blue' onPointerDown={(e)=>setControlsEnabled(false)} onPointerUp={(e)=>setControlsEnabled(true)} onPointerLeave={(e)=>setControlsEnabled(true)} />
           <BoxFollowCamera position={[-1.75,0,-5]} scale={[1,5,1]} material-visible={false} material-color='blue' onPointerDown={(e)=>setControlsEnabled(false)} onPointerUp={(e)=>setControlsEnabled(true)} onPointerLeave={(e)=>setControlsEnabled(true)} />
         </group>
