@@ -50,30 +50,75 @@ export default function Home() {
           <CardAnimation title='Vercel, Heroku, Digital Ocean' />
           <CardAnimation title='Blender, Gimp' />
         </section>
+
+
         <section className='flex items-center justify-center'>
           <Reveal repeat>
             <Tween from={{ opacity: 0 }} duration={2}>
-              <h1 style={{color:'white', fontSize: width >= 1160 ? '16rem' : '5rem'}}>CONTACT</h1>
+              <h1 style={{color:'white', fontSize: width >= 1200 ? '13rem' : '5rem'}}>PROJECTS</h1>
             </Tween>
           </Reveal>
         </section>
-        <section className='flex items-center justify-center flex-row gap-10'>
+
+        <section className='flex items-center justify-center flex-col gap-10 mt-10'>
+
+          <div className='flex items-center justify-center flex-row gap-10'>
+            <Reveal repeat>
+              <Tween from={{ opacity: 0, transform:'translate(25%)' }} duration={2}>
+                
+              <a href='https://react-three-espinaco-espisepi.vercel.app/' target="_blank" style={{textDecoration:'none'}}>
+                <Image src='/projects/portfolio.png' height={220} width={220}  alt="Picture of the author" />
+              </a>
+
+              <a href='https://github.com/espisepi/react-three-espinaco' target="_blank" style={{textDecoration:'none'}}>
+                <Image src='/Octocat.jpg' height={220} width={220} className='rounded-full' alt="Picture of the author" />
+              </a>
+
+              </Tween>
+            </Reveal>
+          </div>
+
+          <div className='flex items-center justify-center flex-row gap-10'>
+            <Reveal repeat>
+              <Tween from={{ opacity: 0, transform:'translate(25%)' }} duration={2}>
+                
+              <a href='http://proshopappespi.herokuapp.com/' target="_blank" style={{textDecoration:'none'}}>
+                <Image src='/projects/proshop.png' height={220} width={220}  alt="Picture of the author" />
+              </a>
+
+              <a href='https://github.com/espisepi/proshop_mern' target="_blank" style={{textDecoration:'none'}}>
+                <Image src='/Octocat.jpg' height={220} width={220} className='rounded-full' alt="Picture of the author" />
+              </a>
+
+              </Tween>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className='flex items-center justify-center'>
+          <Reveal repeat>
+            <Tween from={{ opacity: 0 }} duration={2}>
+              <h1 style={{color:'white', fontSize: width >= 1200 ? '13rem' : '5rem'}}>CONTACT</h1>
+            </Tween>
+          </Reveal>
+        </section>
+        <section className='flex items-center justify-center flex-row gap-10 mt-10'>
 
           <Reveal repeat>
             <Tween from={{ opacity: 0, transform:'translate(25%,25%)' }} duration={2}>
               
-            <a href='https://www.linkedin.com/in/jose-%C3%A1ngel-dom%C3%ADnguez-espinaco-bba437163/' target="_blank" style={{textDecoration:'none', color:'red'}}>
-              <Image src='/linkedin.svg' height={300} width={300}  alt="Picture of the author" />
+            <a href='https://www.linkedin.com/in/jose-%C3%A1ngel-dom%C3%ADnguez-espinaco-bba437163/' target="_blank" style={{textDecoration:'none'}}>
+              <Image src='/linkedin.svg' height={220} width={220}  alt="Picture of the author" />
             </a>
 
-            <a href='https://github.com/espisepi' target="_blank" style={{textDecoration:'none', color:'red'}}>
-              <Image src='/Octocat.jpg' height={300} width={300} className='rounded-full' alt="Picture of the author" />
+            <a href='https://github.com/espisepi' target="_blank" style={{textDecoration:'none'}}>
+              <Image src='/Octocat.jpg' height={220} width={220} className='rounded-full' alt="Picture of the author" />
             </a>
 
             </Tween>
           </Reveal>
-          
         </section>
+        
       </main>
     </>
   )
