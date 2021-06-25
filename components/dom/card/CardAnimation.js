@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
+import { Reveal, Tween } from 'react-gsap';
 import Card from './Card'
-import useGsapRevealAnimation from '../../../hooks/useGsapRevealAnimation'
+
 
 /**
  * 
@@ -10,7 +11,12 @@ import useGsapRevealAnimation from '../../../hooks/useGsapRevealAnimation'
 export default function CardAnimation({ positionInitial, positionFinal, title, description, style}) {
 
     const ref = useRef()
-    const gsapRevealAnimation  = useGsapRevealAnimation(ref, positionInitial, positionFinal);
 
-    return <Card ref={ref} title={title} description={description} style={style} />
+    return (
+        <Reveal repeat>
+            <Tween from={{ opacity: 0, transform:'translate(25%)' }} duration={1.25}>
+                <Card ref={ref} title={title} description={description} style={style} />
+            </Tween>
+        </Reveal>
+    ) 
 }

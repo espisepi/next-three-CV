@@ -4,8 +4,6 @@ import dynamic from 'next/dynamic'
 
 import CardAnimation from '../components/dom/card/CardAnimation'
 
-import useScroll from '../hooks/useScroll'
-
 const CanvasBackground = dynamic(() => import('../components/canvas/background/CanvasBackground'), { ssr: false })
 const CanvasTesellationText = dynamic(() => import('../components/canvas/tesellationText/CanvasTesellationText'), { ssr: false })
 const CanvasLaptop = dynamic(() => import('../components/canvas/laptop/CanvasLaptop'), { ssr: false })
@@ -29,8 +27,11 @@ export default function Home() {
       <CanvasInsideLaptop />
 
 
-      {/* <main style={{width:'70%'}} className='container mx-auto bg-transparent overflow-y-hidden'>
+      <main style={{width:'70%'}} className='container mx-auto bg-transparent overflow-y-hidden'>
         <div style={{width:'100%', height:'100vh', backgroundColor:'transparent'}}>
+
+          
+
         </div>
         <section className='grid md:grid-cols-1 lg:grid-cols-2 gap-10 '>
           <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
@@ -43,7 +44,7 @@ export default function Home() {
           <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
           <CardAnimation positionInitial={[300,100]} positionFinal={[0,0]} />
         </section>
-      </main> */}
+      </main>
     </>
   )
 }
