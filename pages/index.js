@@ -95,6 +95,22 @@ export default function Home() {
           </div>
         </section>
 
+        <div className='flex items-center justify-center flex-row gap-10 mt-10'>
+            <Reveal repeat>
+              <Tween from={{ opacity: 0, transform:'translate(25%)' }} duration={2}>
+                
+              <a href='https://next-three-cv.vercel.app/' target="_blank" style={{textDecoration:'none'}}>
+                <Image src='/projects/cv.png' height={220} width={220}  alt="Picture of the author" />
+              </a>
+
+              <a href='https://github.com/espisepi/next-three-CV' target="_blank" style={{textDecoration:'none'}}>
+                <Image src='/Octocat.jpg' height={220} width={220} className='rounded-full' alt="Picture of the author" />
+              </a>
+
+              </Tween>
+            </Reveal>
+        </div>
+
         <section className='flex items-center justify-center'>
           <Reveal repeat>
             <Tween from={{ opacity: 0 }} duration={2}>
