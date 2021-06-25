@@ -3,7 +3,7 @@ import { Canvas, useThree } from '@react-three/fiber'
 import { Stars, Box, OrbitControls } from '@react-three/drei'
 import * as THREE from 'three'
 
-import { Scene } from './App51/App51'
+import { Scene } from './App49/App49'
 
 function ScenePrincipal({}) {
     
@@ -15,11 +15,8 @@ function ScenePrincipal({}) {
 
     return (
         <>
-        <ambientLight />
-        <Stars count={500} />
-        <Box material-wireframe={true} material-color='green' scale={[3,3,3]} />
         <OrbitControls />
-        {/* <Scene /> */}
+        <Scene />
         </>
     )
 }

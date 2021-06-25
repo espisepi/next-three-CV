@@ -1,8 +1,9 @@
 import * as THREE from 'three'
-import React, { Suspense, useRef, useState, useEffect } from 'react'
+import React, { Suspense, useRef, useState, useEffect, useCallback } from 'react'
 import { Canvas, useFrame, Stars, useThree } from '@react-three/fiber'
 import { Html, Environment, useGLTF, ContactShadows, OrbitControls, Box } from '@react-three/drei'
-import { TextureDataType } from 'three'
+
+import TextTesellation from '../tesellationText/TextTesellation'
 
 function Model({ setControlsEnabled, ...props}) {
 
@@ -67,12 +68,23 @@ export default function CanvasLaptop({style}) {
 
   const [controlsEnabled, setControlsEnabled] = useState(true)
 
+  const redirectPortfolio = useCallback( (e) => {
+      // console.log(e)
+      // e.nativeEvent.preventDefault()
+      console.log('redirect')
+      window.open('https://react-three-espinaco-espisepi.vercel.app/')
+  }, [])
+
   return (
     <Canvas style={style} dpr={[1, 2]} camera={{ position: [-10, 0, -25], fov: 35 }}>
       <pointLight position={[10, 10, 10]} intensity={1.5} />
       <Suspense fallback={null}>
         <group rotation={[0, Math.PI, 0]}>
           <Model setControlsEnabled={setControlsEnabled} />
+        </group>
+        <group onPointerDown={(e)=>redirectPortfolio(e)} onClick={(e)=>redirectPortfolio(e)}>
+          {/* <BoxFollowCamera position={[0,-1.2,-5]} scale={[2,0.3,1]} material-visible={false} material-color='blue' /> */}
+          <TextTesellation onPointerDown={(e)=>redirectPortfolio(e)} onClick={(e)=>redirectPortfolio(e)} text='Go To Portfolio' pointerAnimation={false} position={[0,2,2]} scale={[0.02,0.03,0.03]} />
         </group>
         <group >
           <BoxFollowCamera position={[1.75,0,-5]} scale={[1,5,1]} material-visible={false} material-color='blue' onPointerDown={(e)=>setControlsEnabled(false)} onPointerUp={(e)=>setControlsEnabled(true)} onPointerLeave={(e)=>setControlsEnabled(true)} />

@@ -48,7 +48,7 @@ const fragmentShader = `
 
 `
 
-export default function TextTesellation({ text='Text Default', ...props }){
+export default function TextTesellation({ text='Text Default', pointerAnimation=true, ...props }){
 
     const font = useLoader(THREE.FontLoader, 'helvetiker_bold.typeface.json')
 
@@ -141,7 +141,7 @@ export default function TextTesellation({ text='Text Default', ...props }){
             mesh.material.uniforms.amplitude.value = 1.0 + Math.sin( clock.getElapsedTime() * 0.5 );
             mesh.material.uniforms.iTime.value = clock.getElapsedTime()
         }
-        if(mesh && mesh.rotation) {
+        if(pointerAnimation && mesh && mesh.rotation) {
             mesh.position.x = THREE.MathUtils.lerp(mesh.position.x, mouse.x * 2, 0.1)
             mesh.rotation.x = THREE.MathUtils.lerp(mesh.rotation.x, mouse.y / 2, 0.1)
             mesh.rotation.y = THREE.MathUtils.lerp(mesh.rotation.y, mouse.x / 2, 0.1)
