@@ -4,7 +4,7 @@ import React from 'react'
 const Card = React.forwardRef( ({title='Title', description, style, className}, ref) => {
     return (
         <>
-        <div ref={ref} style={style} className={`max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20 bg-opacity-90 ${className}`}>
+        <div ref={ref} style={style} className={`max-w-md py-8 px-8 bg-white shadow-lg rounded-lg my-20 bg-opacity-90 ${className}`}>
             <div>
                     {/* flex justify-center --> to center title */}
                     {/* flex justify-end --> to end title */}

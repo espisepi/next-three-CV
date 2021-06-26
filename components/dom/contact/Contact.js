@@ -70,150 +70,77 @@ export default function Contact() {
     },[state, setState])
 
     return (
-        <div style={{backgroundColor:'#dddddd'}}>
-            <div className="grid">
-                <div className="col-8">
-                    <h2>Contact form title</h2>
-                    <p>Contact form introduction text</p>
-                </div>
-            </div>
+        <div className='w-full max-w-lg bg-transparent rounded m-auto'>
 
-            <div className="grid">
-                <div className="col-4">
+            <div className="flex flex-wrap -mx-3 mb-6">
+                <div className="w-full px-3">
+                    <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="name">
+                        <h2 className="text-3xl">Name</h2>
+                    </label>
                     <input
+                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading--tight focus:outline-none focus:bg-white  "
                         type="text"
                         placeholder="Name"
                         value={name}
                         name="name"
-                        onChange={onStateChange} 
-                    />
-                </div>
-                <div className="col-4">
-                    <input
-                        type="email"
-                        placeholder="E-Mail"
-                        value={mail}
-                        name="mail"
+                        id="name" /* <label for="name"> */
                         onChange={onStateChange} 
                     />
                 </div>
             </div>
-            <div className="grid">
-                    <div className="col-8">
+            <div className="flex flex-wrap -mx-3 mb-6">
+                <div className="w-full px-3">
+                    <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="mail">
+                        <h2 className="text-3xl">E-mail</h2>
+                    </label>
+                    <input
+                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading--tight focus:outline-none focus:bg-white  "
+                        type="email"
+                        placeholder="E-Mail"
+                        value={mail}
+                        name="mail"
+                        id="mail"
+                        onChange={onStateChange} 
+                    />
+                </div>
+            </div>
+
+            <div text-white="flex flex-wrap -mx-3 mb-6">
+                <div text-white="w-full px-3">
+                        <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="message">
+                            <h2 className="text-3xl">Message</h2>
+                        </label>
                         <TextareaAutosize
                             value={formContent}
                             name="formContent"
+                            id="message"
                             placeholder="Message"
                             onChange={onStateChange}
-                            style={{
-                                minHeight: "48px",
-                                width: "100%",
-                                border: "none",
-                                borderRadius: "0px",
-                                margin: "8px 0px",
-                                resize: "none",
-                                padding: "0px",
-                                paddingBottom: "14px",
-                                WebkitAppearance: "none",
-                                MozAppearance: "none"
-                            }} /> 
+                            className="no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
+                            /> 
 
                     </div>
-                    <div className="col-8">
-                        <button
-                            className={btnClass}
-                            type="submit"
-                            onClick={submitContactForm}
-                            disabled={formButtonDisabled}>
+                    <div className="md:flex md:items-center">
+                        <div text-white="md:w-1/3">
+                            <button
+                                className={`${btnClass} shadow bg-blue-400 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded `}
+                                type="submit"
+                                onClick={submitContactForm}
+                                disabled={formButtonDisabled}>
 
-                           {formButtonText}
-                       </button>
+                            {formButtonText}
+                        </button>
+                       </div>
                     </div>
                 </div>
 
             <style jsx>{`
-            
-                .grid {
-                    display: flex;
-                    flex-direction: row;
-                    flew-wrap: wrap;
-                    max-width: 1280px;
-                    margin-right: auto;
-                    margin-left: auto;
-                    padding-left: 12px;
-                    padding-right: 12px;
-                }
-
-                .col-4,
-                .col-8 {
-                    padding: 8px 12px;
-                    box-sizing: border-box;
-                }
-
-                .col-4 {
-                    flex-basis: 50%;
-                    max-width: 50%;
-                }
-
-                .col-8 {
-                    flex-basis: 100%;
-                    max-width: 100%;
-                }
-
-                @media only screen and (max-width: 768px) {
-                    .grid {
-                        flex-direction: column;
-                        padding-left: 0px;
-                        padding-right: 0px;
-                    }
-                    .col-4,
-                    .col-8 {
-                        padding-left: 24px;
-                        padding-right: 24px;
-                        flex-basis: 100%;
-                        max-width: 100%;
-                    }
-                }
-                input[type=text], input[type=email] {
-                    height: 48px;
-                    width: 100%;
-                    border: none;
-                    border-radius: 0px;
-                    border-bottom: 1px solid #121212;
-                    margin: 8px 0px;
-                    box-shadow: none;
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
-                    padding: 0px;
-                    outline: none;
-                }
-
-                ::placeholder {
-                    color: #C8CBCE;
-                }
-
-                ::-ms-input-placeholder {
-                    color: #C8CBCE;
-                }
-
-                button {
-                    padding: 0px 24px;
-                    height: 48px;
-                    background-color: #F83850;
-                    margin: 16px 0px;
-                    border: none;
-                    border-radius: 0px;
-                    cursor: pointer;
-                    color: #fff;
-                }
-
                 .disabled {
                     background-color: #fff;
                     color: #121212;
                     cursor: auto;
                     padding-left: 0px;
                 }
-
             `}</style>
         </div>
     )

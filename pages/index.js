@@ -119,7 +119,7 @@ export default function Home() {
             </Tween>
           </Reveal>
         </section>
-        <section className='flex items-center justify-center flex-row gap-10 mt-10'>
+        <section className='flex items-center justify-center flex-row gap-10 my-10'>
 
           <Reveal repeat>
             <Tween from={{ opacity: 0, transform:'translate(25%,25%)' }} duration={2}>
