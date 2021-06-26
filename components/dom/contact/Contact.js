@@ -70,7 +70,7 @@ export default function Contact() {
     },[state, setState])
 
     return (
-        <div className='w-full max-w-lg bg-transparent rounded m-auto'>
+        <div className='w-full max-w-lg bg-transparent rounded m-auto mb-20'>
 
             <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full px-3">
@@ -105,8 +105,8 @@ export default function Contact() {
                 </div>
             </div>
 
-            <div text-white="flex flex-wrap -mx-3 mb-6">
-                <div text-white="w-full px-3">
+            <div className="flex flex-wrap -mx-3 mb-6">
+                <div className="w-full px-3">
                         <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="message">
                             <h2 className="text-3xl">Message</h2>
                         </label>
@@ -120,19 +120,20 @@ export default function Contact() {
                             /> 
 
                     </div>
-                    <div className="md:flex md:items-center">
-                        <div text-white="md:w-1/3">
-                            <button
-                                className={`${btnClass} shadow bg-blue-400 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded `}
-                                type="submit"
-                                onClick={submitContactForm}
-                                disabled={formButtonDisabled}>
+            </div>
+            <div className="w-full">
+                <div className="w-full">
+                    <button
+                        style={{backgroundColor: '#0077B7'}}
+                        className={`${btnClass} w-full shadow hover:bg-blue-900 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded `}
+                        type="submit"
+                        onClick={submitContactForm}
+                        disabled={formButtonDisabled}>
 
-                            {formButtonText}
-                        </button>
-                       </div>
-                    </div>
+                    {formButtonText}
+                </button>
                 </div>
+            </div>
 
             <style jsx>{`
                 .disabled {
