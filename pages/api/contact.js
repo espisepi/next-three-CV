@@ -10,6 +10,9 @@ const transporter = nodemailer.createTransport({
   }
 })
 
+console.log(process.env.GMAIL_USERNAME)
+console.log(process.env.GMAIL_PASSWORD)
+
 export default async (req, res) => {
     const { senderMail, name, content, recipientMail } = req.body
 
