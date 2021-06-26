@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import Image from 'next/image'
 
 import CardAnimation from '../components/dom/card/CardAnimation'
+import Contact from '../components/dom/contact/Contact'
 
 import useWindowDimensions from '../hooks/useWindowDimensions'
 
@@ -133,6 +134,10 @@ export default function Home() {
 
             </Tween>
           </Reveal>
+        </section>
+
+        <section>
+          <Contact />
         </section>
         
       </main>
