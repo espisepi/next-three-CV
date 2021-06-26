@@ -1,10 +1,10 @@
 // https://stadtteilliebe.de/blog/serverless-contact-form
+import React from 'react'
 import { useCallback, useState } from 'react'
 import TextareaAutosize from "react-autosize-textarea"
 import { sendContactMail } from "../../../helpers/sendContactMail" 
 
-
-export default function Contact() {
+const Contact = React.forwardRef( ({...props}, ref) => {
     
     const [state, setState] = useState({
         formButtonDisabled: false,
@@ -70,7 +70,7 @@ export default function Contact() {
     },[state, setState])
 
     return (
-        <div className='w-full max-w-lg bg-transparent rounded m-auto mb-20'>
+        <div ref={ref} className='w-full max-w-lg bg-transparent rounded m-auto mb-20'>
 
             <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full px-3">
@@ -124,8 +124,8 @@ export default function Contact() {
             <div className="w-full">
                 <div className="w-full">
                     <button
-                        style={{backgroundColor: '#0077B7'}}
-                        className={`${btnClass} w-full shadow hover:bg-blue-900 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded `}
+                        // style={{backgroundColor: '#0077B7'}}
+                        className={`${btnClass} w-full shadow bg-blue-500 hover:bg-blue-900 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded `}
                         type="submit"
                         onClick={submitContactForm}
                         disabled={formButtonDisabled}>
@@ -145,4 +145,6 @@ export default function Contact() {
             `}</style>
         </div>
     )
-}
+})
+
+export default Contact

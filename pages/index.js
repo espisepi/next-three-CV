@@ -137,7 +137,11 @@ export default function Home() {
         </section>
 
         <section>
-          <Contact />
+          <Reveal repeat>
+              <Tween from={{ opacity: 0, transform:'translate(0%,25%)' }} duration={2}>
+                <Contact />
+              </Tween>
+          </Reveal>
         </section>
         
       </main>
