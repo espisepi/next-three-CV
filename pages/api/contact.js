@@ -5,11 +5,10 @@ import nodemailer from "nodemailer"
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'josdomesp@gmail.com',
-        pass: 'Se151uS951' // naturally, replace both with your real credentials or an application-specific password
+        user: process.env.GMAIL_USERNAME,
+        pass: process.env.GMAIL_PASSWORD // naturally, replace both with your real credentials or an application-specific password
   }
 })
-
 
 export default async (req, res) => {
     const { senderMail, name, content, recipientMail } = req.body
@@ -34,12 +33,10 @@ const mailer = ({ senderMail, name, text, recipientMail }) => {
         text,
         replyTo: from
     }
-//[5]
 
     return new Promise((resolve, reject) => {
         transporter.sendMail(message, (error, info) =>
             error ? reject(error) : resolve(info)
         )
     })
-//[6]
 }
