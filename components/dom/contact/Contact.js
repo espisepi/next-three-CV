@@ -2,7 +2,12 @@
 import React from 'react'
 import { useCallback, useState } from 'react'
 import TextareaAutosize from "react-autosize-textarea"
-import { sendContactMail } from "../../../helpers/sendContactMail" 
+import { sendContactMail } from "../../../helpers/sendContactMail"
+
+function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
 
 const Contact = React.forwardRef( ({...props}, ref) => {
     
@@ -51,6 +56,22 @@ const Contact = React.forwardRef( ({...props}, ref) => {
         const recipientMail = 'josdomesp@gmail.com';
         const { name, mail, formContent } = state;
 
+        if(name.trim() === '' || mail.trim() === '' || formContent.trim() === '') {
+            setState({
+                ...state,
+                formButtonText: "Please fill out all fields"
+            })
+            return;
+        }
+
+        if(!validateEmail(mail)) {
+            setState({
+                ...state,
+                formButtonText: "Email is incorrect"
+            })
+            return;
+        }
+
         const res = await sendContactMail(recipientMail, name, mail, formContent)
         if(res.status < 300) {
             setState({
@@ -63,7 +84,7 @@ const Contact = React.forwardRef( ({...props}, ref) => {
         } else {
             setState({
                 ...state,
-                formButtonText: "Please fill out all fields"
+                formButtonText: "An error Happened"
             })
         }
 
