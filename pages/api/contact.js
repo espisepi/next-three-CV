@@ -1,17 +1,12 @@
 // https://stadtteilliebe.de/blog/serverless-contact-form
 // https://mailtrap.io/blog/nodemailer-gmail/
-import nodemailer from "nodemailer"
+// https://dev.to/markdrew53/integrating-sendgrid-with-next-js-4f5m
+// https://dev.to/kennymark/how-to-send-serverless-emails-with-next-js-and-sengrid-40lj
 
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'josdomesp@gmail.com',
-        pass: 'Se151uS951' // naturally, replace both with your real credentials or an application-specific password
-  }
-})
+import sgMail from '@sendgrid/mail'
 
-console.log(process.env.GMAIL_USERNAME)
-console.log(process.env.GMAIL_PASSWORD)
+sgMail.setApiKey(process.env.EMAIL_API_KEY);
+console.log(process.env.EMAIL_API_KEY)
 
 export default async (req, res) => {
     const { senderMail, name, content, recipientMail } = req.body
@@ -22,24 +17,20 @@ export default async (req, res) => {
         return
     }
 
-    const mailerRes = await mailer({ senderMail, name, text: content, recipientMail })
-    res.send(mailerRes)
+    const msg = {
+        from: 'sepinaco@gmail.com',
+        to: `josdomesp@gmail.com`,
+        subject: `Contact Form Portfolio from ${senderMail}`,
+        name,
+        text: content,
+    };
 
-}
-
-const mailer = ({ senderMail, name, text, recipientMail }) => {
-    const from = name && senderMail ? `${name} <${senderMail}>` : `${name || senderMail}`
-    const message = {
-        from,
-        to: `${recipientMail}`,
-        subject: `Contact Form Portfolio from ${from}`,
-        text,
-        replyTo: from
+    try {
+        await sgMail.send(msg);
+        res.json({ message: `Email has been sent` })
+    } catch (error) {
+        console.log(error.response.body)
+        res.status(500).json({ error: 'Error sending email' })
     }
 
-    return new Promise((resolve, reject) => {
-        transporter.sendMail(message, (error, info) =>
-            error ? reject(error) : resolve(info)
-        )
-    })
 }

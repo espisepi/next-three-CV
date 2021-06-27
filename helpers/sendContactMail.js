@@ -19,6 +19,11 @@ export const sendContactMail = async (recipientMail, name, senderMail, content) 
             },
             data
         })
+        // const res = await fetch("/api/contact", {
+        //     "method": "POST",
+        //     "headers": { "content-type": "application/json" },
+        //     "body": JSON.stringify(data)
+        //   })
         return res
 
     } catch (error) {
