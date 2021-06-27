@@ -5,7 +5,7 @@
 
 import sgMail from '@sendgrid/mail'
 
-const apikey = process.env.EMAIL_API_KEY || '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'
+const apikey = process.env.EMAIL_API_KEY
 sgMail.setApiKey(apikey);
 console.log(apikey)
 
