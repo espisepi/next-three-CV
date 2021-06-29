@@ -42,14 +42,14 @@ export default function Home() {
           </Reveal>
         </section>
         <section className='grid md:grid-cols-1 lg:grid-cols-2 gap-5 place-items-center'>
-          <CardAnimation title='HTML, CSS, Javascript' />
+          <CardAnimation title='HTML, CSS3, Javascript' />
           <CardAnimation title='React, NextJS, Gatsby' />
-          <CardAnimation title='Redux, Zustand, Recoil' />
+          <CardAnimation title='Context, Redux, Zustand, Recoil' />
           <CardAnimation title='ThreeJS, WebGL, GLSL' />
-          <CardAnimation title='Gsap, TweenJS, Tailwindcss' />
-          <CardAnimation title='NodeJS, Express, MongoDB, SQL, Spring, Java' />
+          <CardAnimation title='Gsap, TweenJS' />
+          <CardAnimation title='MERN, SQL' />
           <CardAnimation title='Vercel, Heroku, Digital Ocean' />
-          <CardAnimation title='Blender, Gimp' />
+          {/* <CardAnimation title='Blender, Gimp' /> */}
         </section>
 
 
